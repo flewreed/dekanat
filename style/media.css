@@ -1,0 +1,341 @@
+@media screen and (min-height: 829px) {
+    #container, .container_slider, .photo_slider{
+        height: 80vh;
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    #container, .container_slider, .photo_slider{
+        height: 85vh;
+    }
+}
+
+@media screen and (max-width:1300px) {
+    #container{
+        margin: 0 10vw;
+    }
+}
+
+@media screen and (max-width:1150px) {
+    #header img{ /* скрываем логотип */
+        display: none;
+    }
+    #header h1 {
+        margin: 0 30px;
+        padding: 15px 0;
+    }
+    #header h3 {
+        margin: 0 30px;
+    }
+    .topmenu {
+        z-index: 100;
+        left: 30px;
+    }
+    #container{
+        margin: 0 7vw;
+    }
+    #editstudent, #deletestudent{
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    #editstudent:hover, #deletestudent:hover, #addstudent{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    #container{ /* убираем белые отступы по краям */
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:900px) {
+    #header button{
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width:860px) {
+    #residentialaddress, #registrationaddress, #parentinfo, #parentinfo2{ /* теперь блоки с информацией о родителях и адресах занимают всю доступную ширину */
+        width: 100%;
+    }
+    #parjobplace, #parjobplace2{
+        margin-right: 290px;
+    }
+}
+
+@media screen and (max-width:760px) {
+    #header{
+        height: 140px;;
+    }
+    #header h1 {
+        max-width: 500px;
+    }
+    #header h3 {
+        max-width: 450px;
+    }
+    .topmenu {
+        top: 120px;
+    }
+    #header button{
+        margin-top: -60px;
+    }
+    #studentinfo h2{
+        font-size: 23px;
+    }
+    #studentperformance{
+        margin: 4vh 7vh 0 7vh;
+    }
+    #listofpass{
+        width: 70%;
+    }
+    #studentinfo{
+        padding: 20px 7vw;
+    }
+    #studentph{ /* скрываем фото студента на его странице */
+        display: none;
+    }
+    .tablinks h3, #addstudent, .student td, #teacherslist td{
+        font-size: 13px;
+    }
+    #teacherphoto{
+        width: 100px;
+        height: 120px;
+        margin: 0 20px 5px 0;
+    }
+    #teachers #teachername{
+        margin-top: 0px;
+    }
+    .semesterbtn {
+        width: 30px;
+        font-size: 11px;
+    }
+    #selectsemester{
+        font-size: 17px;
+     }
+    #studentphoto{
+        width: 100px;
+        height: 120px;
+        border: 2px solid black;
+        margin: 0 15px 5px 0;
+        float: left;
+    }
+    #parjobplace, #parjobplace2{
+        margin-right: 200px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    #studentinfo{
+        padding: 20px 5vw;
+    }
+    #departmentslist h4, #disciplines #disciplinename {
+        padding: 10px 20px;
+    }
+    textarea{
+        width: 500px;
+    }
+    .edit1{ /* скрываем первоначальные кнопки добавления и редактирования студента */
+        display: none;
+    }
+    .edit2{ /* показываем дополнительные */
+        display: block;
+    }
+    .edit2 #editstudent, #deletestudent.edit2 {
+        float: left;
+    }
+    .edit2 #editstudent{
+        margin: 0;
+    }
+    #parjobplace, #parjobplace2{
+        margin-right: 150px;
+    }
+}
+@media screen and (max-width:630px) {
+    #parjobplace, #parjobplace2{
+        margin-right: 20px;
+    }
+}
+@media screen and (max-width:600px){
+    #header{
+        height: 115px;;
+    }
+    #header h1 {
+        font-size: 20px;
+    }
+    #header h3 {
+        font-size: 16px;
+    }
+    .topmenu {
+        top: 100px;
+        max-width: 200px;
+    }
+    #header button{
+        margin-top: -50px;
+    }
+    #header button h3 {
+        font-size: 14px;
+    }
+    .menu {
+        min-width: 200px;
+        text-align: left;
+        border-bottom: 1.5px solid #193D5F;
+        border-left: 1.5px solid #193D5F;
+    }
+    #footer{
+        height: 65px;
+    }
+    #footer p{
+        font-size: 12px;
+    }
+    #studentperformance{
+        margin: 2vh 1vh 0 1vh;
+    }
+    #listofpass{
+        width: inherit;
+        margin-right: 40px;
+    }
+    #studentinfo{
+        padding: 20px 2vw;
+    }
+    #studentinfo h2{
+        padding-top: 0;
+        font-size: 20px;
+    }
+    .tab button {
+        padding: 10px 8px;
+    }
+    #selescttypeanddate{
+        margin: 0 20px 5px 20px;
+    }
+    textarea{
+        width: 380px;
+    }
+    #resaddr, #regaddr, #parent, #parent2{
+        padding-left: 10px;
+    }
+}
+@media screen and (max-width:540px) {
+    table {
+        font-size: 14px;
+    }
+    #searchinput, #searchinput2, #searchinput1, #searchinput3 {
+        font-size: 14px;
+        padding-left: 20px;
+        height: 30px;
+    }
+    #searchinput3{
+        width: 65%;
+    }
+    #addstudent{
+        height: 30px;
+        width: 34.5%;
+    }
+    #selectguide .tablinks h3{
+        font-size: 13px;
+    }
+    #selectguide{
+        padding: 10px 15px;
+    }
+    #addstudentinfo{
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    #header{
+        height: 145px;;
+    }
+    .topmenu {
+        top: 130px;
+    }
+    #header button{
+        margin:0;
+        float: left;
+    }
+    #header button h3{
+        font-size: 16px;
+    }
+    #listofpass{
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    #disciplinename{
+        margin: 5px 0 5px 0;
+    }
+    table{
+        font-size: 12px;
+    }
+    table h4, table #disciplinename{
+        margin: 5px;
+    }
+    #teacherphoto{
+        width: 75px;
+        height: 90px;
+        margin: 0 10px 5px 0;
+    }
+    #teachers td, #students td{
+        padding: 10px;
+    }
+    #selectguide .tablinks h3, #addstudent{
+        font-size: 12px;
+    }
+    #departmentslist h4, #disciplines #disciplinename {
+        padding: 10px 15px 10px 15px;
+    }
+    #sendpasses{
+        margin: 0 0 15px 20px;
+    }
+    #teacherpage, #deanerypage, #adminpage{
+        padding: 10px 20px;
+    }
+    textarea{
+        width: 300px
+    }
+}
+
+@media screen and (max-width:400px) {
+    #footer{
+        height: 70px;
+    }
+    #footer p{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:374px) {
+    #header h1 {
+        margin: 0 20px;
+        padding: 15px 0;
+    }
+    #header h3 {
+        margin: 0 20px;
+    }
+    .topmenu {
+        left: 20px;
+    }
+    #selectmajor{
+        height: 60px;
+    }
+    textarea{
+        width: 250px
+    }
+}
+
+@media screen and (max-width:354px) {
+    #header {
+        height: 160px;
+    }
+    .topmenu {
+        top: 145px;
+    }
+}
+
+@media screen and (max-width:338px) {
+    #header {
+        height: 175px;
+    }
+    .topmenu {
+        top: 167px;
+    }
+}

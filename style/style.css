@@ -1,0 +1,590 @@
+* { /* общие стили: обнулыем все отсупы, задаем шрифт для элементов, значение border-box означает, что линейные параметры включают в себя поля и границы, но не отступы*/
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#header{ /* шапка сайта: задаем цвет фона, высоту и цвет шрифта */
+    background-color: #193D5F;
+    height: 120px;
+    color: white;
+    border-bottom: 3px solid #C9A571; /* нижняя граница - красивая полоская дополнительного цвета, который использовался */
+    z-index: 100; /* данный атрибут располагает шапку над остальными элементами, т.е. слоями выше*/
+}
+
+#header h1 { /* название сайта: убираем оступы и добавляем вертикальные поля */
+	margin: 0; 
+	padding: 15px 0;
+}
+
+#header h3 { /* также убираем отступы у названия университета в шапке */
+	margin: 0;
+}
+
+#header img{ /* логотип: позиционируем его у левого края и задаем отступы */
+    float: left;
+    margin: 15px 10px;
+}
+
+#header button{ /* кнопка выхода */
+    float: right; /* позиционируем кнопку по правому краю */
+    height: 37px;
+    margin: -50px 30px; /* поднимаем кнопку вверх от нижней границы шапки и немного отодвигаем от краев */
+    background-color: transparent; /* делаем цвет фона и границы прозрачными */
+    border: transparent;
+    color: #C9A571;
+    cursor: pointer; /* при наведении курсор со стрелочки сменится на указательный палец */
+}
+
+#header button:hover{ /* при наведении на кнопку выхода размер шрифта немного увеличится и появится подчеркивание снизу */
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.topmenu { /* меню где вот всякие вкладки студенту преподавателю и другие*/
+	position: absolute;
+	z-index: 100;
+	top: 105px;
+	left: 150px;
+}
+
+.menu { /* каждая кнопка меню по отдельности */
+	height: 37px;
+	background: #C9A571;
+	text-align: center;
+	font-weight: bold;
+	float:left;
+	overflow: hidden;
+    border-top: 3px solid #C9A571; /* красивая полоска сверху, которая появляется при наведении */
+    width: fit-content;	/* ширина элемента формируется по ширине содержимого */
+}
+
+.menu a{
+	padding: 7px 15px 9px 15px; /* добавляем поля к названию вкладки, чтобы они не слипались друг с другом */
+    font-size: 18px;
+	display: block;
+    color: black;
+	text-decoration: none; /* так как это сслыки, то уберем у них стандартное оформление */
+}
+
+.menu a:visited { /* посещенные вкладки не будут отличаться от не посещенных */
+	color: black;
+}
+
+.menu a:hover { /* при наведении на вкладку в меню ее фон изменит цвет, как раз будет видна полоска сверху */
+	background: rgb(244, 245, 252);
+}
+
+#footer{ /* подвал сайта */
+	border-top: 3px solid #C9A571; /* красивая полоска сверху */
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    background: #193D5F;
+    text-align: center;
+    color: white;
+    }
+    
+#footer p{ /* текст внутри футера */
+    margin: 0;
+    padding: 10px 0;
+}
+
+#container{ /* основной блок, в котором будет находиться информация */
+    margin: 0 12.6vw 0 12.6vw; /* отсупы по бокам поспособствуют фокусировке внимания посетителя непосредственно на контенте, регулиуются в зависимости от ширины страницы */
+    min-height: 76vh; /* задаем минимальную высоту контейнера, чтобы подвал был прижат к низу, регулируется в зависимости от высоты страницы */
+    background-color: antiquewhite;
+    overflow-y: scroll; /* при необходимости будет появляться вертикальная прокрутка контента */
+}
+
+#studentinfo{ /* блок с информацией о студенте: задаем поля, чтобы не прилипало к краям контейнера */
+    padding: 25px 10vw;
+}
+
+#studentph{ /* блок с изображением студента */
+    width: 170px;
+    margin-right: 25px;
+    height: 200px;
+    float: left;
+    border: 2px solid black;
+}
+
+#studentph img{ /* непосредственно изображение студента */
+    z-index: -1; /* расположим его чуть ниже, чтобы при наведении изображение не мешало появляющейся кнопке */
+    background-color: white; /* стандартная картинка имеет формат png, поэтому добавим фон, чтобы она не терялась */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* загружаемое фото будет пропорционально обрезано под заданные размеры */
+}
+
+#addphoto{ /* блок с функцией добавления фото, изначально скрыт */
+    display: none;
+}
+
+#studentph:hover img{ /* при наведении на блок изображение затемняется, чтобы не мешало */
+    background: rgba(75, 75, 75, 0.5);
+}
+#studentph:hover #addphoto{ /* появляется блок с добавлением фото */
+    display: block;
+    margin-top: -61px; /* поднимаем вверх, чтобы блок отображался поверх фотографии */
+    width: 166px; /* задаем фиксированную ширину, т.к. необходимый объект выходит за границы */
+}
+
+#studentph:hover input{ /* убираем границы и растягиваем инпуты для добавления фото в ширину блока */
+    width: 100%;
+    border: none;
+}
+
+#studentph:hover input[type=submit]{ /* стилизуем кнопку отправить */
+    background-color: #C9A571;
+}
+
+#studentph:hover input[type=submit]:active{ /* при нажатии на кнопку она меняет цвет */
+    background-color: #193D5F;
+    color: white;
+}
+
+#studentinfo h2{ /* позиционируем имя студента также слева и отодвигаем немного от верха */
+    padding-top: 7px;
+    margin: 0;
+    float: left;
+}
+
+#studentinfo h4{ /* добавляем поля заголовкам и позиционируем их с левой стороны */
+    padding: 7px 7px 0 0;
+    margin: 0;
+    float: left;
+}
+
+#studentinfo p{ /* задаем верхее поле и обнуляем отступы для основной информации о студенте */
+    padding-top: 7px;
+    margin: 0;
+}
+
+#studentperformance{ /* блок с успеваемостью студента: высота по объему контента, отступ сверху и по краям чтобы не слипалось */
+    margin: 85px 7vw 0 7vw;
+    height: fit-content;
+}
+
+.semesterbtn { /* кнопка семестра */
+    cursor: pointer; /* при наведении курсор со стрелочки сменится на указательный палец */
+    width: 35px; /* фиксированная высота */
+    margin: 0 0 10px 5px; /* отступы слева и снизу, чтобы кнопки не слипались друг с другом */
+    background-color: #C9A571;
+    border-radius: 5px; /* небольшое скругление углов */
+    border: none;
+    color: black;
+}
+
+.semesterbtn a{ /* так как кнопки являются ссылками, то уберем у них стандартное оформление */
+    text-decoration: none; /*  */
+}
+
+#teacherpage button.active, /* нажатые кнопки на странице преподавателя */
+.semesterbtn.active, /* нажатая кнопка семестра */
+#teacherpage button.active, /* нажатые кнопки на странице преподавателя */
+#deanerypage button.active, /* нажатые кнопки на странице деканата */
+#adminpage button.active /* нажатые кнопки на странице администратора */
+{
+    background-color: #193D5F; /* меняют цвет фона и шрифта */
+    color: white;
+}
+
+#selectsemester{ /* заголовок для выбора семестров */
+    padding-top: 5px;
+    margin-right: 5px;
+    float: left;
+}
+
+.semesterbtn h3{ /* позиционируем номера семестров по центру кнопки и задаем отступы */
+    text-align: center;
+    margin: 7px 10px;
+}
+
+
+.tab{ /* блок с кнопками, переключающами окна на страницах */
+    overflow: hidden; /* скрываем область вне поля */
+    background-color: #C9A571; /* цвет фона */
+}
+
+.tab button{ /* сами кнопки данного блока */
+    background-color: inherit; /* цвет фона кнопок наследуется у родителя */
+    float: left; /* позиционируем по левому краю, убираем границы и подчеркивания */
+    border: none;
+    outline: none;
+    cursor: pointer; /* меняем курсор при наведении */
+    padding: 14px 16px;
+    transition: 0.3s; /* при нажатии кнопки она будет плавно менять цвет */
+}
+
+.tab button.active { /* нажатая кнопка меняет цвет фона и шрифта */
+    background-color: #193D5F;
+    color: white;
+}
+
+.tabcontent{ /* задаем контенту на переключаемых страницах поля и скрываем по умолчанию */
+    padding: 5px 15px;
+    display: none;
+}
+
+.openscorebtn{ /* плюсик на вкладке успеваемостью */
+    background-color: transparent; /* делаем прозрачный фон */
+    border: none; /* убираем рамку */
+    cursor: pointer; /* курсор при наведении отличается */
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+#performance #disciplinename{ /* название дисциплины в блоке с успеваемостью */
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+table { /* практически все используемые таблички растянуты на всю допустимую ширину */
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse; /* ячейки не имеют отступов между собой */
+    margin-bottom: 10px; /* отступ после таблицы */
+    border: 2px solid black; /* внешняя граница */
+}
+
+th, td { /* добавим границы ячейкам */
+    border: 1.5px solid black;
+}
+
+th h4{ /* отступы для элемента th */
+    margin: 10px 5px;
+}
+
+td h4, td #disciplinename, #typeoflesson, #studentFIO{ /* отступы для элементов td */
+    margin: 10px 15px;
+}
+
+td #typeofcertification, #scores, #totalscore, #attendancecount,
+#lessondate, #lessonscore, #pass{ /* центрируем некоторые элементы */
+    text-align: center;
+}
+
+.container_slider{ /* слайдер с главной страницы */
+    margin: 0;
+    z-index: -1; /* расположение ниже шапки, чтобы логотип не перекрывался */
+    background-color: antiquewhite; /* переходный цвет между слайдами */
+    width: 100%;
+    height: 76vh;
+    position:relative;
+}
+
+.photo_slider{ /* слайды */
+    position:absolute;
+    animation:round 20s infinite; /* бесконечная анимация слайдов */
+    opacity:0;
+    object-fit: cover; /* обрезаем изображение под размер окна пропорционально */
+    height: 100%;
+    left: 0;
+    width:100%
+}
+
+@keyframes round { /* анимация слайдов: изменяем прозрачность изображения в зависимости от тайминга */
+25%{opacity:1}
+40%{opacity:0}
+}
+
+img:nth-child(1){animation-delay:15s} /* на каждый слайд отводится по пять секунд */
+img:nth-child(2){animation-delay:10s}
+img:nth-child(3){animation-delay:5s}
+img:nth-child(4){animation-delay:0s}
+
+#selescttypeanddate h4{ /* отсутпы у заголовков на странице старосты */
+    float: left; /* позиционируем слева */
+    margin: 5px 7px 0 0;
+}
+
+#selescttypeanddate #typeoflesson, #disciplinename, #date{ /* нижние отступы для заголовков блока выставления пропусков на странице старосты */
+    margin-bottom: 5px;
+}
+
+#major, #group{ /* верхнее поле для заполняемых полей группы и направления */
+    padding-top: 5px;
+}
+
+select, input{ /* добавляем поля и границы для инпутов и селектов */
+    border: 1px solid #193D5F;
+    padding: 5px 10px;
+}
+
+#listofpass{ /* задаем левый отступ и ширину таблицы со списком студентов на странице старосты */
+    margin-left: 40px;
+    width: 55%;
+}
+
+#sendpasses{ /* кнопка отправления пропусков на странице старосты */
+    margin: 0 0 15px 40px;
+    padding: 7px 10px;
+    background-color: #C9A571;
+    font-size: 16px;
+    border: none;
+}
+
+#sendpasses:active, #teacherpage button:active{ /* при нажатии кнопка меняет цвета фона и шрифта*/
+    background-color: #193D5F;
+    color: white;
+}
+
+#teacherphoto{ /* параметры фотографии преподавателя в его ячейке справочника */
+    width: 120px;
+    height: 140px;
+    border: 2px solid black;
+    margin: 0 20px;
+    float: left;
+    object-fit: cover; /* загружаемое фото будет пропорционально обрезано под заданные размеры */
+}
+
+#teachers #teachername{ /* верхний отступ для имени преподавателя в справочнике */
+    margin-top: 10px;
+}
+
+#teachers .contact, .student .contact{ /* левое позиционирование контактов преподавателя и студента для их корректного отображения, а также правый отступ */
+    float: left;
+    margin-right: 7px;
+}
+
+#teachers td, #students td{ /* поля для ячеек с преподавателями и студентами */
+    padding: 20px;
+}
+
+#teachers h4, .student p{ /* правый отступ для некоторых элементов в ячеках преподавателя/студента на странице справочника */
+    margin-right: 15px;
+}
+
+.student p{ /* верхний отступ для текста в ячейках студента */
+    margin-top: 5px;
+}
+
+#student h3, #teacher h3{ /* правый отступ для некоторых элементов в ячейках преподавателя/студента на странице справочника */
+    margin-right: 10px;
+}
+
+#searchinput, #searchinput2, #searchinput1, #searchinput3{ /* общие характеристики для строк поиска на странице справочника */
+    height: 40px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif; /* задаем шрифт */
+    width: 100%;
+    padding-left: 30px; /* задаем поле слева чтобы ввод начинался со сдвигом*/
+    outline: none;
+}
+
+#searchinput3{ /* ширина строки поиска на вкладке со студентами отличается от остальных, позиционируем ее слева */
+    width: 75%;
+    float: left;
+}
+
+#addstudent{ /* кнопка добавления студента */
+    width: 24.5%; /* в сумме строка поиска и кнопка занимают чуть меньше 100% возможной ширины, чтобы не слипаться друг с другом */
+    height: 40px;
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    background-color: #C9A571;
+    font-size: 18px;
+    float: right; /* правое позиционирование */
+    cursor: pointer;
+}
+
+#addstudent:active, #addstudbtn:active, #adminpage button:active{ /* нажатие кнопок добавить студента в справочнике и на страницах добавить/редактировать студента, нажатые кнопки на странице администратора */
+    background-color: #193D5F;
+    color: white;
+}
+
+#editstudent, #deletestudent{ /* кнопки удалить и редактировать студента в справочнике */
+    background: transparent;
+    color: #C9A571;
+    float: right;
+    border: none;
+    font-size: 16px;
+}
+
+.edit2{ /* дополнительные кнопки удаления и редактирования студента, которые появятся при адаптивности, а предыдущие скроются */
+    display: none;
+}
+
+#editstudent:hover, #deletestudent:hover{ /* кнопки удаления и редактирования при наведении увеличиваются в размере */
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+#departmentslist h4, #disciplines #disciplinename{ /* обнуляем отступы и выставляем поля для ячеек с дисциплинами и кафедрами */
+    padding: 10px 40px;
+    margin: 0;
+}
+
+#studentphoto{ /* параметры фото студента на странице справочника */
+    width: 140px;
+    height: 180px;
+    border: 2px solid black;
+    margin: 5px 20px;
+    float: left;
+    object-fit: cover;
+}
+
+.student h4, #adminpage h4{ /* левое позиционирование и отступы для заголовков в ячейках студентов и на странице администратора */
+    float: left;
+    margin: 5px 7px 0 0;
+}
+
+.student #group, .student #major{ /* обнуляем поля для строк группы и направления в ячейках студента */
+    padding: 0;
+}
+
+#teacherpage, #deanerypage, #addstudentinfo, #adminpage, #selescttypeanddate, #selectguide{ /* поля для основных блоков на каждой станице */
+    padding: 20px 40px;
+}
+
+.departmentname{ /* нижний отсуп для кафедр */
+    margin-bottom: 15px;
+}
+.teacherFIO, .lessonname, .groupnumber, .typeoflesson, .lessondate, #deaneryFIO, .discipname,
+.coursenumber, .subdivision{ /* отступы для заголовков на странице деканата */
+    margin: 5px 7px 5px 0;
+}
+
+.lessonname, .groupnumber, .typeoflesson, .lessondate, .discipname,
+.coursenumber, .subdivision{ /* левое позиционирование для заголовков на странице деканата*/
+    float: left;
+}
+
+.disciplinename, .group, .lessontype, .discipline,
+.course, .subdivisionname, #adminpage .admintables, #adminpage .admintablescols{ /* выпадающие списки на страницах деканата и администратора */
+    margin-bottom: 7px;
+    background-color: white;
+}
+
+#enterdatabtn, #editdatabtn, #outputdatabtn, #acceptdatabtn, #acceptdatabtn2,
+#outputmissbtn, #outputratingbtn, #viewprogbtn, #addstudbtn, #adminpage button{ /* кнопки на страницах администратора и деканата */
+    cursor: pointer;
+    height: 35px;
+    padding: 0 10px;
+    margin-top: 10px;
+    background-color: #C9A571;
+    border-radius: 5px;
+    border: none;
+    color: black;
+}
+
+#selectedgroupstudents2 #studentsmark, #selectedgroupstudents #studentsmark{ /* отметки студентов на странице преподавателя */
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    alignment: center;
+}
+
+#selectedgroupstudents2 #studentsmark{ /* левое поле для оценки на странице преподавателя */
+    padding-left: 40%;
+}
+
+#selectedgroupstudents #studentsmark{ /* левое поле для оценки в другой таблице на странице преподавателя */
+    padding-left: 47%;
+}
+
+#acceptdatabtn, #acceptdatabtn2, #addstudbtn, #acceptcols, #accepttable, #getrequest{ /* параметры для кнопок на страницах администратора и преподавателя*/
+    margin-top: 0;
+    font-size: 16px;
+}
+
+#selectedgrouprating #studentmark{ /* позиционирование отметки по центру в таблице с рейтингом выбранной группы на странице преподавателя */
+    text-align: center;
+    margin: 0;
+}
+
+#selectedgroupstudents2 #editdate, #selectedgroupstudents2 .lesson{ /* убираем границе в полях даты и типа занятия в таблице с редактированием данных на странице преподавателя */
+    border: none;
+    padding-right: 2px;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator { /* отодвигаем значок календаря */
+    margin-left: -15px;
+}
+
+
+#enterdata, #editdata, #outputdata, #outputmiss, #outputrating, #viewprog, #openselected,
+#opentable, #createrequest{ /* вехний отступ для открывающихся подстраниц на страницах преподавателя, деканата и администратора */
+    margin-top: 15px;
+}
+
+.scroll{ /* прокручиваемый блок, в котором полоса прокручивания появляется автоматически при необходимости */
+    overflow-x: auto;
+}
+
+tr #fixedfio h4{ /* фиксированная ширина для ячейки с ФИО студента на странцице деканата */
+    width: 250px;
+}
+
+tr #misscount{ /* центральное позиционирование текста в ячнйке с числом пропусков */
+    text-align: center;
+}
+
+#addstudentinfo h4{ /* левое позиционирование от отступы для заголовков на странице добавления/редактирвоания студента */
+    float: left;
+    margin-right: 7px;
+    margin-bottom: 7px;
+}
+
+#addstudemail{ /* ширина поля ввода почты студента */
+    width: 200px;
+}
+
+#addstudsurname, #addstudname, #addstudpatronymic, #addstudgradebook,
+.addstudsubdivision, .addstudfintype, .addstudentrytype, .addstudcourse, #addstudbirthdate, #addstudgeneder,
+.addstudyear, .addstuddepart, .addstudmajor, .addstudeducationform, .addstudgroup,
+#addstudemail, #addstudphone, #resaddr input, #regaddr input, #parent input, #parent2 input{ /* отступы для различных атрибутов на странице добавления/редактирования студента */
+    margin-bottom: 8px;
+    margin-top: -5px;
+}
+
+#residentialaddress, #parentinfo{ /* левое позиционирование и отступ первых блоков адреса и родителя на странице добавления/редактирования студента */
+    float: left;
+    margin-bottom: 20px;
+}
+
+#registrationaddress, #parentinfo2{ /* правое позиционирование и отступ вторых блоков адреса и родителя */
+    float: right;
+    margin-bottom: 20px;
+}
+
+#residentialaddress, #parentinfo, #registrationaddress, #parentinfo2{ /* блоки с адресами и информацией о родителях занимают по половине отведенной ширины */
+    width: 50%;
+}
+
+#parjobplace, #parjobplace2{ /* ширина и левое позиционирование полей ввода информации о месте работы родителя */
+    float: left;
+    width: 240px;
+}
+
+#resaddr, #regaddr, #parent, #parent2{ /* небольшой отступ для блоков с информацией о родителях и адресах */
+    padding-left: 30px;
+}
+
+#selectedgroupstudents2, #disciplineprog, #selectedcol, #selectedtable{ /* выводимые таблицы на страницах преподавателя, деканата и администратора будут шириной по объему контента */
+    width: fit-content;
+}
+
+#selectedcol input, #selectedtable input{ /* убираем границы у редактируемых полей в выводимых страницах */
+    border: none;
+}
+
+#selectedtable th{ /* отступы в ячейках */
+    padding: 5px 10px;
+}
+
+textarea{ /* размеры поля для создания запроса на странице администратора */
+    width: 550px;
+    height: 250px;
+    padding: 10px;
+}
